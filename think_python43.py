@@ -1,14 +1,14 @@
 import turtle
 
-def square(t):
-    t.fd(100)
+def square(t, length):
+    t.fd(length)
     for i in range(3):
         t.lt(90)
-        t.fd(100)
+        t.fd(length)
 
 
 bob = turtle.Turtle()
 #print(bob)
 
-square(bob)
+square(bob, 1000)
 turtle.mainloop()
