@@ -10,5 +10,5 @@ def square(t):
 bob = turtle.Turtle()
 #print(bob)
 
-exercise1_square(bob)
+square(bob)
 turtle.mainloop()
