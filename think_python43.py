@@ -2,35 +2,27 @@ import turtle
 from math import pi
 
 def square(t, length):
-    t.fd(length)
-    for _ in range(3):
-        t.lt(90)
-        t.fd(length)
+    polygon(t,length,4)
 
 def polygon(t, length,sides):
-    t.fd(length)
-    for _ in range(sides-1):
-        t.lt(360/sides)
-        t.fd(length)
-
-
+    polyline(t,sides,360/sides,length)
+   
 def circle(t,radius,quality = 360):
-    length = (2*pi*radius)/quality #2 times pi times radious gives you the circumference that is then divided into the quality rotations
-    polygon(t,length,quality)
+    arc(t,radius,quality)
 
 def arc(t,radius, angle, quality = 360):
     length = (2*pi*radius)/quality
+    polyline(t,angle,1,length)
+
+def polyline(t,angle,curve,length):
     t.fd(length)
     for _ in range(angle-1):
-        t.lt(1)
+        t.lt(curve)
         t.fd(length)
-
+        
 bob = turtle.Turtle()
-#print(bob)
-
-#square(bob, 1000)
-#polygon(bob,100,20)
-bob.fd(100)
-bob.bk(100)
-arc(bob,100,180)
+#square(bob, 100)
+#polygon(bob,100,5)
+#arc(bob,100,180)
+circle(bob,100)
 turtle.mainloop()
