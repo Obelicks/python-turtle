@@ -1,4 +1,10 @@
 import turtle
+
+def invisible_move(t,length):
+    t.penup()
+    t.fd(length)
+    t.pendown()
+
 def snowflake(t,length):
     length = 3**length
     koch(t,length)
@@ -9,7 +15,7 @@ def snowflake(t,length):
 
 def koch(t,x):
     if x < 3:
-        t.fd(x*33)
+        t.fd(x*1)
         return
     koch(t,x/3)
     t.lt(60) 
@@ -44,10 +50,43 @@ def triangle(t, length, n):
     t.fd(length)
     t.lt(120)
 
+def all_together_now(t):
+    t.pencolor("red")
+
+    invisible_move(t,-750)
+
+    triangle(t,200,7)
+
+    invisible_move(t,450)
+
+    t.lt(90)
+    t.pencolor("green")
+    Tree(t,100,12)
+    t.rt(90)
+
+    invisible_move(t,250)
+
+    t.pencolor("blue")
+    t.lt(60)
+    snowflake(t,5)
+    invisible_move(t,250)
+    crazy(t)
+
+def crazy(t):
+    for i in range(360):
+        for colors in ['red', 'yellow', 'green', 'purple', 'orange', 'blue']:
+            t.pencolor(colors)
+            t.forward(i)
+            t.left(124)
 
 bob = turtle.Turtle()
-bob.hideturtle()
-triangle(bob,150, 10)
-#snowflake(bob,3)
+screen = turtle.Screen() 
+screen.bgcolor("black") #Background color set to black
+bob.hideturtle() #Hide the turtle spite
+bob.speed(0)
+#turtle.tracer(0,0)
+
+all_together_now(bob)
+#turtle.update()
 turtle.mainloop()
 
