@@ -31,10 +31,23 @@ def Tree(t, length, n):
     t.lt(angle)
     t.bk(length)
 
+def triangle(t, length, n):
+    if n == 0:
+        return
+    triangle(t,length/2,n-1)
+    t.fd(length)
+    t.lt(120)
+    triangle(t,length/2,n-1)
+    t.fd(length)
+    t.lt(120)
+    triangle(t,length/2,n-1)
+    t.fd(length)
+    t.lt(120)
+
+
 bob = turtle.Turtle()
 bob.hideturtle()
-bob.lt(90)
-Tree(bob,150, 15)
+triangle(bob,150, 10)
 #snowflake(bob,3)
 turtle.mainloop()
 
