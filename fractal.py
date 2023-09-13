@@ -84,6 +84,7 @@ screen = turtle.Screen()
 screen.bgcolor("black") #Background color set to black
 bob.hideturtle() #Hide the turtle spite
 bob.speed(0)
+bob.pencolor("white")
 #turtle.tracer(0,0)
 
 all_together_now(bob)
